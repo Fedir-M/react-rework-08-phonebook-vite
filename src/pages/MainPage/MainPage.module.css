@@ -1,0 +1,11 @@
+.MainPage {
+    max-width: 600px;
+  
+    margin: 30 auto;
+    padding: 20px;
+  
+    font-size: 16px;
+  
+    border-radius: 10px;
+    background-color: rgb(112, 199, 212);
+  }

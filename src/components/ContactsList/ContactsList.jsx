@@ -15,7 +15,7 @@ const ContactsList = () => {
   const filter = useSelector(filterSelector);
   const dispatch = useDispatch();
 
-  console.log("Filter value ==> ", filter);
+  // console.log("Filter value ==> ", filter);
 
 
   const handleFilter = () => {
@@ -34,7 +34,7 @@ const ContactsList = () => {
 
   return (
     <div>
-      <h2>Contacts</h2>
+      <h2 className={s.contactsTitle}>My contacts:</h2>
 
       <Filter />
 
