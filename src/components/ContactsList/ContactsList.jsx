@@ -17,8 +17,8 @@ const ContactsList = () => {
 
   // console.log("Filter value ==> ", filter);
 
-
   const handleFilter = () => {
+    if(filter === '') return contacts
     
     return contacts?.filter((el) =>
       el.name.toLocaleLowerCase().includes(filter?.toLocaleLowerCase())
@@ -31,6 +31,7 @@ const ContactsList = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+  
 
   return (
     <div>

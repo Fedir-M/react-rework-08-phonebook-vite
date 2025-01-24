@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addContact, deleteContact, fetchContacts } from "./contactsOperations";
+import { addContact, deleteContact, fetchContacts, updateContact,  } from "./contactsOperations";
 
 const initialState = {
   contacts: {
@@ -14,10 +14,16 @@ const contactsSlice = createSlice({
   name: "contacts",
   initialState,
   reducers: {
-    filterContacts: (state, action) => {
-      state.filter = action.payload;
+    filterContacts:{ 
+      reducer(state, {payload}) {
+      state.filter =payload;
     },
-  },
+    prepare(e) {
+      return {
+        payload: e.target.value.trim()
+      }
+    }
+  }},
   extraReducers: (builder) => {
     builder
       // pending
@@ -27,6 +33,12 @@ const contactsSlice = createSlice({
       // addContact
       .addCase(addContact.fulfilled, (state, action) => {
         state.contacts.items.push(action.payload);
+      })
+      // updateContact
+      .addCase(updateContact.fulfilled, (state, action) => {
+        state.contacts.items = [...state.contacts.items.filter(
+          (contact) => contact.id !== action.payload.id
+        ), action.payload];
       })
       // deleteContact
       .addCase(deleteContact.fulfilled, (state, action) => {

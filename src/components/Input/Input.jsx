@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import s from './Input.module.css';
 
-const Input = ({ title, type, name, placeholder,  method, pattern }) => {
+const Input = ({ title, type, name, placeholder, value,  method, pattern }) => {
   return (
     <label>
       <p>{title}</p>
@@ -9,11 +9,12 @@ const Input = ({ title, type, name, placeholder,  method, pattern }) => {
         <input
           type={type}
           name={name}
+          value={value}
           placeholder={placeholder}
           className={s.inputs}
           pattern={pattern}
           required
-          onChange={e => method(e.target.value)}
+          onChange={e => method(e)}
         />
       ) : (
         <input

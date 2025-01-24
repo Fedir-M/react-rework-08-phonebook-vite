@@ -1,13 +1,15 @@
 import Input from '../Input/Input';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from '../../redux/contact/contactsSlice';
+import { filterSelector } from '../../redux/contact/contactsSelectors';
 
 const Filter = () => {
+  const filter = useSelector(filterSelector)
   const dispatch = useDispatch();
 
 
   const handleChange = e => {
-    dispatch(filterContacts(e.target.value.trim()));
+    dispatch(filterContacts(e));
   };
  
 
@@ -18,7 +20,8 @@ const Filter = () => {
         type="text"
         name="filter"
         placeholder={'Enter name...'}
-        method={ handleChange}
+        value={filter}
+        method={handleChange}
       />
     </div>
   );

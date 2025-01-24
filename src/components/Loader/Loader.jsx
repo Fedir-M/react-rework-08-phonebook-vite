@@ -1,18 +1,15 @@
-import { useSelector } from 'react-redux';
-import s from './Loader.module.css';
-import { isLoadingSelector } from '../../redux/contactsSelectors';
+import { BarLoader } from "react-spinners";
 
 const Loader = () => {
-  const isLoading = useSelector(isLoadingSelector);
-
   return (
-    <>
-    {isLoading && (<div className={s.loaderWrapper}>
-      <div className={s.loader}>
-      <span className={s.loaderName}></span>
-    </div>
-    </div>)}
-    </>
+    <BarLoader color="#069fa7" height={18} speedMultiplier={1} width={200}  cssOverride={{
+      display: "block",
+      margin: "0 auto",
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+    }}/>
   );
 };
 

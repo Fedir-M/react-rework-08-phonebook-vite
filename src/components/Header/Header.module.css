@@ -7,6 +7,13 @@
   margin: 20px 4px 2px 0;
 }
 
+.logoutButton {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
 .link {
     font-weight: 600;
   color: rgb(0, 106, 114);
