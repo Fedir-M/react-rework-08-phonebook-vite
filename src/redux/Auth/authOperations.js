@@ -89,5 +89,5 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-// martynov@mail.com
-// examplepwd12345
+// martynov@mail.com   gregory@i.ua
+// examplepwd12345     examplepwd67890
